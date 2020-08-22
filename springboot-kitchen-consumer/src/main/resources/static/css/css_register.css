@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#register_body{
+    margin:  auto;
+    height: 500px;
+    width: 960px;
+    background-color: white;
+    border: 1px solid #e8e6e6;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+#register_body_left{
+    float: left;
+    height: 500px;
+    width: 480px;
+}
+#register_body_right{
+    float: right;
+    margin-top: 50px;
+    height: 400px;
+    width: 450px;
+    border-left: 2px dotted #acada8;
+}
+.loginfocus:focus{
+    background-color: #acada8;
+}

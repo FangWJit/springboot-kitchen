@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dhf.dao.FoodMapper">
+  <resultMap id="BaseResultMap" type="com.dhf.model.Food">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="food_sort" jdbcType="VARCHAR" property="foodSort" />
+    <result column="food_name" jdbcType="VARCHAR" property="foodName" />
+    <result column="type_id" jdbcType="INTEGER" property="typeId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, food_sort, food_name, type_id
+  </sql>
+  <select id="selectByType" parameterType="java.lang.Integer" resultType="java.lang.String">
+    select 
+    food_name
+    from foodlist
+    where type_id = #{id}
+  </select>
+  <select id="selectFoodAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from foodlist
+    group by type_id
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from foodlist
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dhf.model.Food">
+    insert into foodlist (id, food_sort, food_name, 
+      type_id)
+    values (#{id,jdbcType=INTEGER}, #{foodSort,jdbcType=VARCHAR}, #{foodName,jdbcType=VARCHAR}, 
+      #{typeId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dhf.model.Food">
+    insert into foodlist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="foodSort != null">
+        food_sort,
+      </if>
+      <if test="foodName != null">
+        food_name,
+      </if>
+      <if test="typeId != null">
+        type_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="foodSort != null">
+        #{foodSort,jdbcType=VARCHAR},
+      </if>
+      <if test="foodName != null">
+        #{foodName,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dhf.model.Food">
+    update foodlist
+    <set>
+      <if test="foodSort != null">
+        food_sort = #{foodSort,jdbcType=VARCHAR},
+      </if>
+      <if test="foodName != null">
+        food_name = #{foodName,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        type_id = #{typeId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dhf.model.Food">
+    update foodlist
+    set food_sort = #{foodSort,jdbcType=VARCHAR},
+      food_name = #{foodName,jdbcType=VARCHAR},
+      type_id = #{typeId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

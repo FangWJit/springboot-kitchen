@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#food_list{
+
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+    width:960px;
+    height: 200px;
+}
+#body_div_left_top_down{
+    background-color: #fbfbfb;
+    border-radius: 3px;
+    margin-top: 10px;
+    height: auto;
+    width: 960px;
+    padding-top: 5px;
+}
+#food_list_pork{
+    float: left;
+    position: relative;
+    width: 940px;
+    margin: 10px;
+    height:auto;
+    background-color: white;
+    border: 0.5px solid #e8e6e6;
+}
+#food_list_pork_class_th{
+    width: 940px;
+    height: 40px;
+    text-align: left;
+    background-color: #e8e6e6;
+}
+#food_list_pork_class {
+    margin: 10px;
+}
+#food_list_pork_class  li{
+    margin: 10px;
+    float: left;
+    width: 66px;
+    position: relative;
+}
+

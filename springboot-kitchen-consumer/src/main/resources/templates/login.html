@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/css_index.css}" rel="stylesheet" type="text/css"/>
+    <link rel="icon" th:href="@{/image/厨阁.ico}" type="text/plain"/>
+    <link th:href="@{/css/css_login.css}" rel="stylesheet" type="text/css"/>
+    <title>Login</title>
+</head>
+<body style="background-color: #fbfbfb">
+<div id="top">
+    <div id="top_logo">
+        <img th:src="@{/image/厨阁.png}" style="width: 50px;height:50px;float: left">
+        <span style="font-size: 30px;">厨阁</span>
+    </div>
+    <div id="top_search">
+        <form>
+            <div id="top_search_input">
+                <div id="FDJ">🔍</div>
+                <input type="text" id="top_search_input_Text" />
+                <button style="margin-left:13px;height: 42px;width: 80px;position:absolute;border:0
+            ;background: coral;margin-top: -1px;border-radius: 3px;float: right;
+            font-family: 隶书;font-size: 20px" >搜索</button></div>
+        </form>
+    </div>
+    <div id="top_list">
+        <ul>
+            <a href="#"><li>上传</li></a>
+            <a href="#"><li>提问</li></a>
+            <a href="login.html"> <li>登录</li></a>
+            <a href="register.html"><li>注册</li></a>
+        </ul>
+    </div>
+
+</div>
+
+<div id="Navigation">
+    <div id="Navigation_body">
+        <ul>
+            <a class="Navigation" th:href="@{/kitchen/index}"><li > 首页</li></a>
+            <a class="Navigation"  th:href="@{/kitchen/foodlist}"><li>菜谱大全</li></a>
+            <a class="Navigation"  th:href="@{/kitchen/familylist}"><li>家常菜谱</li></a>
+            <a class="Navigation"  href="#"><li>美食问答</li></a>
+            <a class="Navigation"  href="#"><li>食谱分类</li></a>
+            <a class="Navigation"  href="#"><li>健康食疗</li></a>
+            <a class="Navigation"  href="#"><li>厨友排行</li></a>
+            <a class="Navigation"  href="#"><li>公告</li></a>
+        </ul>
+
+    </div>
+</div>
+
+<div id="login_body">
+    <div id="login_body_left">
+        <div style="width: 480px;height: 20px;text-align: center;margin-top: 110px;font-size: 28px;margin-left: 20px"><p>LOGIN</p></div>
+        <p style="width: 480px;height: 20px;text-align: center;color:red;margin-top: 50px;margin-bottom:-40px;font-size: 18px;margin-left: 20px" th:inline="text">[[${error}]]</p>
+    <form th:action="@{/kitchen/decidelogin}" method="post">
+        <div style="height: 40px;width: 230px;margin-top:50px;border: 1px solid #d6d3d1;margin-left:150px;border-radius: 3px">
+
+       <div style="height: 40px;width: 40px;float: left;position: relative">  <img th:src="@{/image/小人.png}" />   </div>
+           <input type="text" class="login"  autofocus name="user_phone" placeholder="QQ/微信/微博/手机号/厨号" style="width: 160px;height: 40px;margin-left:1px;border: none;position: absolute" /></div>
+        <div style="height: 40px;width: 230px;margin-top:20px;border: 1px solid #d6d3d1;margin-left:150px;border-radius: 3px">
+        <div style="height: 40px;width: 40px;float: left;position: relative"> <img th:src="@{/image/锁.png}" />  </div>
+            <input type="password" class="login" name="user_pass" placeholder="密码" style="width: 160px;height: 40px;margin-left:1px;border:none;position: absolute "/></div>
+        <a href="#" style="float: right;font-size: 13px;margin-right: 100px;margin-top: 5px;margin-bottom: 15px">忘记密码?</a>
+        <div style="height: 40px;width: 80px;margin-top:50px;margin-left:150px;border-radius: 3px;float: left">
+            <input type="submit"  class="login" value="登录" style="width: 230px;height: 40px;border: none;background-color: coral;color: white;border-radius: 3px "/>
+        </div>
+    </form>
+    </div>
+
+    <div id="login_body_right">
+        <div style="margin-top: 80px;text-align: center;float: left;margin-left: 80px">
+            <div style="width: 280px"> 其他登录方式&gt;&gt;</div>
+            <br>
+            <div style="width: 50px;height: 50px;margin-left: 45px;margin-top:20px;float:left;border-radius: 5px">
+                <a href="#"> <img th:src="@{/image/QQ.png}"></a>
+            </div>
+            <div style="width: 50px;height: 50px;margin-left: 20px;margin-top:20px;float:left;border-radius: 5px">
+                <a href="#"> <img th:src="@{/image/微信.png}"></a>
+            </div>
+            <div style="width: 50px;height: 50px;margin-left: 20px;margin-top:20px;float:left;border-radius: 5px">
+                <a href="#"> <img th:src="@{/image/微博.png}"></a>
+            </div>
+        </div>
+        <p style="float: right; font-size: 13px;margin-right: 150px;margin-top: 50px">还没有账号?</p>
+        <div style="height: 40px;width: 80px;margin-top:90px;margin-left:100px;border-radius: 3px;float:left">
+            <a href="register.html"><button  style="width: 230px;height: 40px;border: none;background-color: coral;color: white;border-radius: 3px "> 注册</button></a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

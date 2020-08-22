@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+    <link th:href="@{/css/css_index.css}" rel="stylesheet" type="text/css"/>
+    <link rel="icon" th:href="@{/image/厨阁.ico}" type="text/plain"/>
+    <title>厨阁</title>
+</head>
+<body style="background-color: #fbfbfb">
+<div id="top">
+    <div id="top_logo">
+        <img th:src="@{/image/厨阁.png}" style="width: 50px;height:50px;float: left">
+        <span style="font-size: 30px;">厨阁</span>
+    </div>
+    <div id="top_search">
+        <form>
+            <div id="top_search_input">
+                <div id="FDJ">🔍</div>
+            <input type="text" id="top_search_input_Text" />
+            <button style="margin-left:13px;height: 42px;width: 80px;position:absolute;border:0
+            ;background: coral;margin-top: -1px;border-radius: 3px;float: right;
+            font-family: 隶书;font-size: 20px" >搜索</button></div>
+        </form>
+    </div>
+    <div id="top_list">
+        <ul>
+            <div th:if="${session.link} == null">
+                <a href="#">
+                    <li>上传</li>
+                </a>
+                <a href="#">
+                    <li>提问</li>
+                </a>
+                <a th:href="@{/kitchen/login}">
+                    <li>登录</li>
+                </a>
+                <a th:href="@{/kitchen/register}">
+                    <li>注册</li>
+                </a>
+            </div>
+            <div th:if="${session.link} != null">
+                <a href="#">
+                    <li>上传</li>
+                </a>
+                <a href="#">
+                    <li>提问</li>
+                </a>
+                <a th:href="@{'/kitchen/detail/'+${session.link.getUserPhone()}}" >
+                    <li th:text="${session.link.getUserName().substring(0,2)}+'..'"></li>
+                </a>
+                <a th:href="@{/kitchen/exit}">
+                    <li>退出</li>
+                </a>
+            </div>
+        </ul>
+
+    </div>
+
+</div>
+
+<div id="Navigation">
+   <div id="Navigation_body">
+    <ul>
+        <a class="Navigation" th:href="@{/kitchen/index}" style=" background-color: aliceblue;color: coral;"><li > 首页</li></a>
+        <a class="Navigation"  th:href="@{/kitchen/foodlist}"><li>菜谱大全</li></a>
+        <a class="Navigation"  th:href="@{/kitchen/familylist}"><li>家常菜谱</li></a>
+        <a class="Navigation"  href="#"><li>美食问答</li></a>
+        <a class="Navigation"  href="#"><li>食谱分类</li></a>
+        <a class="Navigation"  href="#"><li>健康食疗</li></a>
+        <a class="Navigation"  href="#"><li>厨友排行</li></a>
+        <a class="Navigation"  href="#"><li>公告</li></a>
+    </ul>
+
+   </div>
+</div>
+
+<div id="body_div">
+    <div style="float: left;width: 660px" >
+    <div id="body_div_left_top">
+        <p style="color: darkgray">时令热搜</p>
+        <div id="body_div_left_top_down">
+            <div class="XZ" style="margin:5px;width: 100px;height: 35px;background-color:#e7e3e3;float: left;border-radius: 3px;text-align: center;">
+                <a href="#" style="display: inline-block;width: 100px;height: 30px;border-radius: 3px;padding-top: 5px" >东坡肉</a></div>
+
+        </div>
+       </div>
+
+      <div id="body_div_left_center">
+            <p style="color: darkgray">最新食谱</p>
+            <a href="#" style="float: right;margin-top: -20px">更多&gt&gt</a>
+            <hr style="border: 1.2px solid;color: gainsboro;margin-top: 5px">
+            <div id="body_div_left_center_food">
+                <div id="NOone">
+                    <div id="image">
+                        <a href="#"> <img th:src="@{/image/手撕茄子.jpg}"></a>
+                    </div>
+                    <div id="writer">
+                        <p style="font-family:楷体;font-size: 25px;margin-top: 15px;margin-left: 5px">蒜香手撕茄子</p>
+                        <p style="font-size: 18px;font-family: 楷体;margin-top: 55px;margin-left: 35px">方万军</p>
+                        <div style="width: 100px;height: 100px;right: 0px;bottom: 0px;position: absolute"><img th:src="@{/image/赞.png}"></div>
+                    </div>
+                </div>
+                <div style=" margin-top: 10px; width: 660px;height: auto">
+
+                    <div style="float: left;border: 1px solid #e8e6e6;margin-right: 15px;margin-top: 10px">
+                    <div style=" height: 110px; width: 200px;background-color: white;">
+                      <img th:src="@{/image/肉末茄子.jpg}">
+                    </div>
+                    <div style=" height: 60px;width: 200px;background-color: white;">
+                        <a href="#" style="padding:5px;font-size: 14px"> 肉末蒸茄子</a>
+                    </div>
+                    </div>
+
+                </div>
+              </div>
+           </div>
+
+      <div id="body_div_left_bottom">
+          <p style="color: darkgray">本周最热</p>
+          <a href="#" style="float: right;margin-top: -20px">更多&gt&gt</a>
+          <hr style="border: 1.2px solid;color: gainsboro;margin-top: 5px">
+
+          <div id="NOone1">
+              <div id="image1">
+                  <a href="#"> <img th:src="@{/image/东坡肉.jpg}"></a>
+              </div>
+              <div id="writer1">
+                  <p style="font-family:楷体;font-size: 25px;margin-top: 15px;margin-left: 5px">东坡肉</p>
+                  <p style="font-size: 18px;font-family: 楷体;margin-top: 55px;margin-left: 35px">方万军</p>
+                  <div style="width: 100px;height: 100px;right: 0px;bottom: 0px;position: absolute"><img th:src="@{/image/赞.png}"></div>
+              </div>
+          </div>
+
+          <div style=" margin-top: 10px; width: 660px;height: auto">
+
+              <div style="float: left;border: 1px solid #e8e6e6;margin-right: 15px;margin-top: 10px">
+                  <div style=" height: 110px; width: 200px;background-color: white;">
+                      <img th:src="@{/image/肉末茄子.jpg}">
+                  </div>
+                  <div style=" height: 60px;width: 200px;background-color: white;">
+                      <a href="#" style="padding:5px;font-size: 14px"> 肉末蒸茄子</a>
+                  </div>
+              </div>
+
+          </div>
+
+      </div>
+
+        <div id="body_div_left_bottom2">
+            <p style="color: darkgray">厨友排行</p>
+            <a href="#" style="float: right;margin-top: -20px">更多&gt&gt</a>
+            <hr style="border: 1.2px solid;color: gainsboro;margin-top: 5px">
+
+            <div style=" margin-top: 10px; width: 660px;height: 200px">
+                <div style=" float: left; width: 50px;height: 50px;border-radius: 50%;background-color: #fbfbfb;margin: 20px;text-align: center;margin-bottom: 30px"><a href="#"><img th:src="@{/image/厨阁.png}" /><p>飞飞</p></a></div>
+               </div>
+
+        </div>
+
+    </div>
+
+    <div style="float: right;width: 280px;height:auto">
+    <div th:if="${session.link} == null">
+    <div id="body_div_right_top">
+        <div style="padding-top: 10px;width: 250px;margin: 0 auto"><hr style="border: 1.2px solid;color: gainsboro;margin-top: 5px"></div>
+        <div style="padding-top: 5px;width: 200px;margin: 0 auto"><hr style="border: 1.2px solid;color: gainsboro;margin-top: 5px"></div>
+        <div style="margin-top: -20px;margin-left: 110px;width:60px;background-color:#ffffff;padding-left: 10px;font-size: 18px;color: darkgray">Login</div>
+        <div >
+
+            <form th:action="@{/kitchen/decidelogin}" method="post">
+                <div  style="height: 40px;width: 230px;margin-top:20px;border: 1px solid #d6d3d1;margin-left:25px;border-radius: 3px">
+                 <div style="height: 40px;width: 40px;float: left;position: relative"> <img th:src="@{/image/小人.png}" /></div>
+
+                <input type="text" placeholder="QQ/微信/微博/手机号/厨号" name="user_phone" class="login" style="width: 160px;height: 40px;margin-left:1px;border: none;position: absolute"/></div>
+
+                <div  style="height: 40px;width: 230px;margin-top:20px;border: 1px solid #d6d3d1;margin-left:25px;border-radius: 3px">
+                    <div style="height: 40px;width: 40px;float: left;position: relative"> <img th:src="@{/image/锁.png}" /></div>
+
+                    <input type="password" placeholder="密码"  name="user_pass" class="login" style="width: 160px;height: 40px;margin-left:1px;border:none;position: absolute "/></div>
+                  <a href="#" style="float: left;font-size: 13px;margin-left: 25px;margin-top: 5px;margin-bottom: 15px">忘记密码</a>
+                  <a href="register.html" style="float: right;font-size: 13px;margin-right: 20px;margin-top: 5px;margin-bottom: 15px">免费注册</a>
+                <div style="height: 40px;width: 230px;margin-top:20px;margin-left:24px;border-radius: 3px">
+
+                    <input type="submit" value="登录" style="width: 235px;height: 40px;border: none;background-color: coral;color: white;border-radius: 3px "/>
+
+                </div>
+                <div style="margin-top: 30px;text-align: center">
+                    <div style="width: 280px"> 其他登录方式&gt;&gt;</div>
+                    <div style="width: 50px;height: 50px;margin-left: 45px;margin-top:20px;float:left;border-radius: 5px">
+                       <a href="#"> <img th:src="@{/image/QQ.png}"></a>
+                    </div>
+                    <div style="width: 50px;height: 50px;margin-left: 20px;margin-top:20px;float:left;border-radius: 5px">
+                       <a href="#"> <img th:src="@{/image/微信.png}"></a>
+                    </div>
+                    <div style="width: 50px;height: 50px;margin-left: 20px;margin-top:20px;float:left;border-radius: 5px">
+                       <a href="#"> <img th:src="@{/image/微博.png}"></a>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    </div>
+
+        <div id="body_div_right_center">
+            <div style="padding-top: 10px;width: 250px;margin: 0 auto"><hr style="border: 1.2px solid;color: gainsboro;margin-top: 5px"></div>
+            <div style="padding-top: 5px;width: 200px;margin: 0 auto"><hr style="border: 1.2px solid;color: gainsboro;margin-top: 5px"></div>
+            <div style="margin-top: -18px;margin-left: 110px;width:65px;background-color:#ffffff;padding-left: 5px;font-size: 15px;color: darkgray">用户在搜</div>
+            <table style="margin: 0 auto;margin-top: 10px;width: 240px;text-align: center;margin-bottom: 10px">
+                <tr>
+                    <td style="width:120px;height: 40px;border-right: 1px solid #e8e6e6;border-bottom: 1px solid #e8e6e6;"><a href="#">拌肉皮丝</a></td>
+                    <td style="width:120px;height: 40px;border-bottom: 1px solid #e8e6e6;"><a href="#">春季养生汤</a></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <div id="body_div_right_bottom">
+            <div style="padding-top: 10px;width: 250px;margin: 0 auto"><hr style="border: 1.2px solid;color: gainsboro;margin-top: 5px"></div>
+            <div style="padding-top: 5px;width: 200px;margin: 0 auto"><hr style="border: 1.2px solid;color: gainsboro;margin-top: 5px"></div>
+            <div style="margin-top: -18px;margin-left: 110px;width:65px;background-color:#ffffff;padding-left: 5px;font-size: 15px;color: darkgray">用户分类</div>
+            <table style="margin: 0 auto;margin-top: 10px;width: 240px;text-align: center;margin-bottom: 10px">
+                <tr>
+                    <td style="width:120px;height: 40px;border-right: 1px solid #e8e6e6;border-bottom: 1px solid #e8e6e6;"><a href="#">豆腐花生</a></td>
+                    <td style="width:120px;height: 40px;border-bottom: 1px solid #e8e6e6;"><a href="#">麻婆豆腐</a></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <div id="body_div_right_last">
+            <div style="padding-top: 10px;width: 250px;margin: 0 auto"><hr style="border: 1.2px solid;color: gainsboro;margin-top: 5px"></div>
+            <div style="padding-top: 5px;width: 200px;margin: 0 auto"><hr style="border: 1.2px solid;color: gainsboro;margin-top: 5px"></div>
+            <div style="margin-top: -18px;margin-left: 110px;width:65px;background-color:#ffffff;padding-left: 5px;font-size: 15px;color: darkgray">最佳厨友</div>
+            <div style="float: left; width:100px;height: 100px;margin: 20px;"> <img th:src="@{/image/第一名.png}"></div>
+            <div style=" float: right; width: 60px;height:60px;border-radius: 50%;background-color: #fbfbfb;margin: 40px;text-align: center">
+                <a href="#"><img th:src="@{/image/厨阁.png}" /><p>飞飞</p></a></div>
+
+        </div>
+    </div>
+</div>
+
+<div id="body_bottom">
+    <div style="height: 150px;width: 150px;margin-left:150px;padding-top: 50px;float:left">
+       <img th:src="@{/image/关注.png}">
+        扫码，关注我！！！
+    </div>
+    <div style="float: left;padding-top: 80px;margin-left: 200px;font-family: 楷体;font-size: 23px">
+        富强&nbsp;&nbsp;&nbsp;&nbsp;民主&nbsp;&nbsp;&nbsp;&nbsp;文明&nbsp;&nbsp;&nbsp;&nbsp;和谐&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+        自由&nbsp;&nbsp;&nbsp;&nbsp;平等&nbsp;&nbsp;&nbsp;&nbsp;公正&nbsp;&nbsp;&nbsp;&nbsp;法治&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+        爱国&nbsp;&nbsp;&nbsp;&nbsp;敬业&nbsp;&nbsp;&nbsp;&nbsp;诚信&nbsp;&nbsp;&nbsp;&nbsp;友善
+    </div>
+</div>
+
+
+<div style="float:left;width: 100%;height:30px; background-color: #acada8;position: relative;text-align: center">
+    国际警督  18290514177
+</div>
+
+</body>
+</html>

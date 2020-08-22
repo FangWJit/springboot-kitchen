@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dhf.dao.UserDataMapper">
+  <resultMap id="BaseResultMap" type="com.dhf.model.UserData">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="user_photo" jdbcType="VARCHAR" property="userPhoto" />
+    <result column="fans" jdbcType="INTEGER" property="fans" />
+    <result column="noricer" jdbcType="INTEGER" property="noricer" />
+    <result column="notes_num" jdbcType="INTEGER" property="notesNum" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_name, user_phone, user_photo, fans, noricer, notes_num, age, sex
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_data
+    where user_phone = #{user_phone}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_data
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dhf.model.UserData">
+    insert into user_data (id, user_name, user_phone, 
+      user_photo, fans, noricer, 
+      notes_num, age, sex)
+    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR}, 
+      #{userPhoto,jdbcType=VARCHAR}, #{fans,jdbcType=INTEGER}, #{noricer,jdbcType=INTEGER}, 
+      #{notesNum,jdbcType=INTEGER}, #{age,jdbcType=INTEGER}, #{sex,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dhf.model.UserData">
+    insert into user_data
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userPhone != null">
+        user_phone,
+      </if>
+      <if test="userPhoto != null">
+        user_photo,
+      </if>
+      <if test="fans != null">
+        fans,
+      </if>
+      <if test="noricer != null">
+        noricer,
+      </if>
+      <if test="notesNum != null">
+        notes_num,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null">
+        #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhoto != null">
+        #{userPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="fans != null">
+        #{fans,jdbcType=INTEGER},
+      </if>
+      <if test="noricer != null">
+        #{noricer,jdbcType=INTEGER},
+      </if>
+      <if test="notesNum != null">
+        #{notesNum,jdbcType=INTEGER},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dhf.model.UserData">
+    update user_data
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhoto != null">
+        user_photo = #{userPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="fans != null">
+        fans = #{fans,jdbcType=INTEGER},
+      </if>
+      <if test="noricer != null">
+        noricer = #{noricer,jdbcType=INTEGER},
+      </if>
+      <if test="notesNum != null">
+        notes_num = #{notesNum,jdbcType=INTEGER},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_phone = #{userPhone}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dhf.model.UserData">
+    update user_data
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_phone = #{userPhone,jdbcType=VARCHAR},
+      user_photo = #{userPhoto,jdbcType=VARCHAR},
+      fans = #{fans,jdbcType=INTEGER},
+      noricer = #{noricer,jdbcType=INTEGER},
+      notes_num = #{notesNum,jdbcType=INTEGER},
+      age = #{age,jdbcType=INTEGER},
+      sex = #{sex,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

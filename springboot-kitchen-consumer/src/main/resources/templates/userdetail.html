@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/css_index.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/css_detail.css}" rel="stylesheet" type="text/css"/>
+    <link rel="icon" th:href="@{/image/厨阁.ico}" type="text/plain"/>
+    <title>information</title>
+</head>
+<body style="background-color: #fbfbfb">
+<div id="top">
+    <div id="top_logo">
+        <img th:src="@{/image/厨阁.png}" style="width: 50px;height:50px;float: left">
+        <span style="font-size: 30px;">厨阁</span>
+    </div>
+    <div id="top_search">
+        <form>
+            <div id="top_search_input">
+                <div id="FDJ">🔍</div>
+                <input type="text" id="top_search_input_Text" />
+                <button style="margin-left:13px;height: 42px;width: 80px;position:absolute;border:0
+            ;background: coral;margin-top: -1px;border-radius: 3px;float: right;
+            font-family: 隶书;font-size: 20px" >搜索</button></div>
+        </form>
+    </div>
+    <div id="top_list">
+        <ul>
+            <a href="#"><li>上传</li></a>
+            <a href="#"><li>提问</li></a>
+            <a th:href="@{'/kitchen/detail/'+${session.link.getUserPhone()}}" >
+                <li th:text="${session.link.getUserName().substring(0,2)}+'..'"></li>
+            </a>
+            <a th:href="@{/kitchen/exit}">
+                <li>退出</li>
+            </a>
+        </ul>
+    </div>
+
+</div>
+
+<div id="Navigation">
+    <div id="Navigation_body">
+        <ul>
+            <a class="Navigation" th:href="@{/kitchen/index}"><li > 首页</li></a>
+            <a class="Navigation"  th:href="@{/kitchen/foodlist}"><li>菜谱大全</li></a>
+            <a class="Navigation"  th:href="@{/kitchen/familylist}"><li>家常菜谱</li></a>
+            <a class="Navigation"  href="#"><li>美食问答</li></a>
+            <a class="Navigation"  href="#"><li>食谱分类</li></a>
+            <a class="Navigation"  href="#"><li>健康食疗</li></a>
+            <a class="Navigation"  href="#"><li>厨友排行</li></a>
+            <a class="Navigation"  href="#"><li>公告</li></a>
+        </ul>
+
+    </div>
+</div>
+
+    <div id="detail_body">
+        <div id="detail_left">
+            <div id="head_photo">
+                <img th:src="@{'/head/'+${userData.getUserPhoto()}}"/>
+            </div>
+            <div id="popularity">
+               <p> 粉丝  <span th:text="${userData.getFans()}"></span>  |
+                   关注 <span th:text="${userData.getNoricer()}"></span>
+               </p>
+                <div>
+                    <div id="span_ell">
+                        <span id="signature" >生活就是要精彩,活力四射，精彩人生</span>
+                    </div>
+                    <a  href="#selfdom"><img th:src="@{/image/修改.png}"></a>
+                </div>
+                <p><a class="detail" href="#noricer_detail">我的关注</a></p>
+                <p><a class="detail" href="#my_fens">我的粉丝</a></p>
+                <p><a class="detail" href="#works_details">我的作品</a></p>
+                <p><a class="detail" href="#save_detail">我的收藏</a></p>
+                <p><a class="detail" href="#make_detail">修改资料</a></p>
+            </div>
+        </div>
+
+        <div id="detail_right">
+
+             <div id="works_details">
+                 <div id="my_job"><span>我的作品</span></div>
+                 <hr/><hr/>
+                 <div class="works">
+                     <span style="padding-top: 90px;margin-left: 200px">主人还没有发布作品哟~~~~，快去发布吧。</span>
+                 </div>
+             </div>
+
+            <div id="fens_detail">
+                <div id="my_fens"><span>我的粉丝</span></div>
+                <hr/><hr/>
+                <div class="works">
+                    <span style="padding-top: 90px;margin-left: 200px">主人还没有粉丝哟~~~~，快去活跃吧。</span>
+                </div>
+            </div>
+
+            <div id="noricer_detail">
+                <div id="my_noricer"><span>我的关注</span></div>
+                <hr/><hr/>
+                <div class="works">
+                    <span style="padding-top: 90px;margin-left: 200px">主人还没有关注别人哟~~~~，快去关注吧。</span>
+                </div>
+            </div>
+
+            <div id="save_detail">
+                <div id="my_save"><span>我的收藏</span></div>
+                <hr/><hr/>
+                <div class="works">
+                    <span style="padding-top: 90px;margin-left: 200px">主人还没有收藏作品哟~~~~，快去收藏吧。</span>
+                </div>
+            </div>
+
+            <div id="make_detail">
+                <div id="my_make"><span>修改资料</span></div>
+                <hr/><hr/>
+                <form method="post" th:action="@{/kitchen/changedetail}" enctype="multipart/form-data">
+                <div id="make_photo">
+                    <div id="make_img"><img th:src="@{'/head/'+${userData.getUserPhoto()}}"></div>
+                </div>
+                    <div class="only_detail">
+                       <span style="margin-left: 20px">厨名：</span> <input class="input" name="userName" type="text" th:value="${userData.getUserName()}"/>
+                    </div>
+                    <div class="only_detail">
+                        <span style="margin-left: 20px">年龄：</span> <input class="input" name="age" type="text" th:value="${userData.getAge()}"/>
+                    </div>
+                    <div class="only_detail">
+                        <span style="margin-left: 20px">性别：</span> <input class="input" name="sex" type="text" th:value="${userData.getSex()}"/>
+                    </div>
+                    <div class="only_detail">
+                        <span style="margin-left: 20px">头像：</span> <input class="input" name="userPhoto" value="更换头像" type="file" />
+                    </div>
+                    <div class="only_detail">
+                        <span style="margin-left: 20px">提交：</span> <input class="submit"  type="submit" />
+                    </div>
+                </form>
+            </div>
+
+            <div id="selfdom">
+                <div id="my_self"><span>个性签名</span></div>
+                <hr/><hr/>
+                <div id="self">
+                    <textarea cols="90" rows="10">   快把今天想说的话写下来吧</textarea>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>

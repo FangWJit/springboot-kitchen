@@ -1,0 +1,171 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#detail_body{
+    margin:20px auto;
+    height: 500px;
+    width: 960px;
+    background-color: white;
+    border: 1px solid #e8e6e6;
+    border-radius: 8px;
+}
+#detail_left{
+    height: 500px;
+    width: 220px;
+    background-color: coral;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    position: absolute;
+}
+#detail_body #head_photo{
+    background-color: white;
+    border-radius: 50%;
+    border:1px black;
+    margin-left: 40px;
+    margin-top: 30px;
+    width: 130px;
+    height: 130px;
+    position: relative;
+}
+#popularity{
+    width: 220px;
+    height: auto;
+    font-size: 14px;
+    text-align: center;
+}
+#popularity p{
+    height: 20px;
+    width: 110px;
+    margin:15px auto ;
+}
+#popularity div{
+    height: 20px;
+    width: 220px;
+}
+#popularity #span_ell{
+    height: 20px;
+    width: 190px;
+    margin-left: 5px;
+    float: left;
+}
+#popularity div img{
+    height: 22px;
+    width: 22px;
+    float: right;
+}
+#signature{
+    color: white;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    display: block;
+}
+.detail{
+    display: block;
+    height: 22px;
+    width: 100px;
+    padding: 5px;
+    border-radius: 4px;
+}
+a:hover{
+    background-color: white;
+}
+#detail_right{
+    height: 500px;
+    overflow: auto;
+    width: 740px;
+    float: right;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+#works_details,#fens_detail,#noricer_detail,#save_detail,#make_detail,#selfdom
+{
+    width: 740px;
+    height: 500px;
+    overflow: auto;
+}
+#my_job,#my_fens,#my_noricer,#my_save,#my_make,#my_self{
+   margin: 10px 20px;
+    height: 20px;
+    width: 700px;
+    float: left;
+}
+hr{
+    width: 700px;
+    float: right;
+    margin-right:20px;
+    margin-top: 5px;
+}
+
+.works{
+    height: 200px;
+    width: 700px;
+    margin:10px 20px;
+    border: 1px #acada8 solid;
+    color: #acada8;
+    float: left;
+}
+
+#make_img{
+    background-color: white;
+    border: 1px black;
+    margin-left: 13px;
+    margin-top: 11px;
+    width: 176px;
+    height: 228px;
+    float: left;
+    border-radius: 4px;
+}
+#make_photo{
+    height: 250px;
+    width: 200px;
+    background-color: #e7e3e3;
+    float: right;
+    margin-right: 50px;
+    margin-top: 30px;
+    border-radius: 4px;
+}
+.photo_path{
+    float: left;
+    height: 20px;
+    width: 80px;
+    margin:20px 10px;
+}
+.only_detail{
+    height: 40px;
+    width: 400px;
+    background-color: #e7e3e3;
+    float: left;
+    margin-left: 50px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+.input{
+    border: none;
+    width: 200px;
+    height: 40px;
+    margin: 0px 50px;
+    font-size: 14px;
+    background-color: bisque;
+    padding-left: 20px;
+
+}
+.submit{
+    border: none;
+    width: 220px;
+    height: 40px;
+    margin: 0px 50px;
+    font-size: 14px;
+    background-color: deepskyblue;
+    color: white;
+}
+#self {
+    height: 200px;
+    width: 700px;
+    margin:10px 20px;
+    color: #acada8;
+    float: left;
+}
+

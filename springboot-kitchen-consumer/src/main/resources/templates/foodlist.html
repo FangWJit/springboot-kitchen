@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>厨阁</title>
+    <link th:href="@{/css/css_index.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/css_foodlist.css}" rel="stylesheet" type="text/css"/>
+    <link rel="icon" th:href="@{/image/厨阁.ico}" type="text/plain"/>
+</head>
+<body style="background-color: #fbfbfb">
+<!--头部-->
+<div id="top">
+    <div id="top_logo">
+        <img th:src="@{/image/厨阁.png}" style="width: 50px;height:50px;float: left">
+        <span style="font-size: 30px;">厨阁</span>
+    </div>
+    <div id="top_search">
+        <form>
+            <div id="top_search_input">
+                <div id="FDJ">🔍</div>
+                <input type="text" id="top_search_input_Text" />
+                <button style="margin-left:13px;height: 42px;width: 80px;position:absolute;border:0
+            ;background: coral;margin-top: -1px;border-radius: 3px;float: right;
+            font-family: 隶书;font-size: 20px" >搜索</button></div>
+        </form>
+    </div>
+    <div id="top_list">
+        <ul>
+            <div th:if="${session.link} == null">
+                <a href="#">
+                    <li>上传</li>
+                </a>
+                <a href="#">
+                    <li>提问</li>
+                </a>
+                <a th:href="@{/kitchen/login}">
+                    <li>登录</li>
+                </a>
+                <a th:href="@{/kitchen/register}">
+                    <li>注册</li>
+                </a>
+            </div>
+            <div th:if="${session.link} != null">
+                <a href="#">
+                    <li>上传</li>
+                </a>
+                <a href="#">
+                    <li>提问</li>
+                </a>
+                <a href="#">
+                    <li th:text="${session.link.getUserName().substring(0,2)}+'..'"></li>
+                </a>
+                <a th:href="@{/kitchen/exit}">
+                    <li>退出</li>
+                </a>
+            </div>
+        </ul>
+    </div>
+
+</div>
+<!--导航栏-->
+<div id="Navigation">
+    <div id="Navigation_body">
+        <ul>
+            <a class="Navigation" th:href="@{/kitchen/index}"><li > 首页</li></a>
+            <a class="Navigation" th:href="@{/kitchen/foodlist}" style=" background-color: aliceblue;color: coral;"><li>菜谱大全</li></a>
+            <a class="Navigation" th:href="@{/kitchen/familylist}" ><li>家常菜谱</li></a>
+            <a class="Navigation"  href="#"><li>美食问答</li></a>
+            <a class="Navigation"  href="#"><li>食谱分类</li></a>
+            <a class="Navigation"  href="#"><li>健康食疗</li></a>
+            <a class="Navigation"  href="#"><li>厨友排行</li></a>
+            <a class="Navigation"  href="#"><li>公告</li></a>
+        </ul>
+
+    </div>
+</div>
+<!--主体部分-->
+<div id="food_list" >
+    <h3>菜谱大全</h3>
+    <div id="body_div_left_top_down" >
+        <div class="XZ" style="margin:5px;width: 100px;height: 35px;background-color:#e7e3e3;float: left;border-radius: 3px;text-align: center;" th:each="sortname,userStat:${sort}">
+            <a th:href="'#'+${sortname}" style="display: inline-block;width: 100px;height: 30px;border-radius: 3px;padding-top: 5px" th:text="${sortname}"></a>
+        </div>
+    </div>
+
+    <div id="food_list_pork" th:each="sort1,userStat:${sort}">
+        <div id="food_list_pork_class_th">
+            <p th:id="${sort1}" style="padding-top: 5px;font-size: 18px;padding-left: 30px" th:text="${sort1}">猪肉</p>
+        </div>
+        <div id="food_list_pork_class" >
+               <ul >
+                   <li th:each="name,userStat:${food.get(sort1)}"  th:text="${name}"></li>
+               </ul>
+        </div>
+    </div>
+
+</div>
+
+</div>
+<div style="float:left;height: 20px;width: 100%"></div>
+<div style="float:left;width: 100%;height:30px; background-color: #acada8;position: relative;text-align: center">
+    国际警督  18290514177
+</div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/kitchen-parent/kitchen-parent.iml" filepath="$PROJECT_DIR$/kitchen-parent/kitchen-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-kitchen-consumer/springboot-kitchen-consumer.iml" filepath="$PROJECT_DIR$/springboot-kitchen-consumer/springboot-kitchen-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-kitchen-interface/springboot-kitchen-interface.iml" filepath="$PROJECT_DIR$/springboot-kitchen-interface/springboot-kitchen-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-kitchen-provider/springboot-kitchen-provider.iml" filepath="$PROJECT_DIR$/springboot-kitchen-provider/springboot-kitchen-provider.iml" />
+    </modules>
+  </component>
+</project>
